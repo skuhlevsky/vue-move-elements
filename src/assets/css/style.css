@@ -11,7 +11,7 @@ body {
   width: 100%;
   min-height: 100vh;
   background: #ffffff;
-  background: linear-gradient(315deg,#85144b,#00dbde);
+  background: linear-gradient(315deg, #85144b, #00dbde);
 }
 
 #app {
@@ -25,11 +25,11 @@ body {
   background: #f6f9fc;
   padding: 20px;
   border-radius: 3px;
-  box-shadow: 0 4px 36px rgba(50,50,93,.11), 0 1px 33px rgba(0,0,0,.08);
+  box-shadow: 0 4px 36px rgba(50, 50, 93, 0.11), 0 1px 33px rgba(0, 0, 0, 0.08);
 }
 
 .link__home {
-  color: #5F9EA0;
+  color: #5f9ea0;
 }
 
 .app-name {
@@ -64,47 +64,47 @@ button {
 }
 
 .btn {
-  background-color:#bbb;
-  border-radius:5px;
-  border:1px solid #999;
-  display:inline-block;
-  cursor:pointer;
-  color:#ffffff;
-  font-family:Arial;
-  font-size:14px;
+  background-color: #bbb;
+  border-radius: 5px;
+  border: 1px solid #999;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
   min-height: 33px;
-  padding:6px 21px;
-  text-decoration:none;
+  padding: 6px 21px;
+  text-decoration: none;
   margin: 7px;
 }
 
 .btn.btn__geen:hover {
-  background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
-  background-color:#77a809;
+  background: linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+  background-color: #77a809;
 }
 
 .btn__geen {
-  box-shadow:inset 0px 1px 0px 0px #a4e271;
-  background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
-  background-color:#89c403;
-  border:1px solid #74b807;
+  box-shadow: inset 0px 1px 0px 0px #a4e271;
+  background: linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+  background-color: #89c403;
+  border: 1px solid #74b807;
 }
 
 .btn__red {
   box-shadow: inset 0px 1px 0px 0px #cf866c;
-  background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
-  background-color:#d0451b;
+  background: linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+  background-color: #d0451b;
   border-color: #942911;
 }
 
 .btn__red:hover {
-  background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
-  background-color:#d0451b;
+  background: linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+  background-color: #d0451b;
 }
 
 .btn:active {
-  position:relative;
-  top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .field__newtodo {
@@ -144,8 +144,8 @@ button {
 .todo__item {
   display: flex;
   justify-content: space-between;
-  padding: .2rem .2rem;
-  transition: color .5s;
+  padding: 0.2rem 0.2rem;
+  transition: color 0.5s;
   text-align: left;
 }
 
@@ -159,98 +159,14 @@ input {
   text-decoration: line-through;
 }
 
-/* Checkbox start here */
-.checkbox {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-.checkbox input[type="checkbox"] {
-  width: auto;
-  opacity: 0.00000001;
-  position: absolute;
-  left: 0;
-  margin-left: -20px;
-}
-.checkbox label {
-  position: relative;
-}
-.checkbox label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 4px;
-  width: 20px;
-  height: 20px;
-  transition: transform 0.28s ease;
-  border-radius: 3px;
-  border: 2px solid #7bbe72;
-}
-.checkbox label:after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 5px;
-  border-bottom: 2px solid #7bbe72;
-  border-left: 2px solid #7bbe72;
-  -webkit-transform: rotate(-45deg) scale(0);
-  transform: rotate(-45deg) scale(0);
-  transition: transform ease 0.25s;
-  will-change: transform;
-  position: absolute;
-  top: 11px;
-  left: 10px;
-}
-.checkbox input[type="checkbox"]:checked ~ .todo__item--name-area label::before {
-  color: #7bbe72;
-}
-.checkbox input[type="checkbox"]:checked ~ .todo__item--name-area label::after {
-  -webkit-transform: rotate(-45deg) scale(1);
-  transform: rotate(-45deg) scale(1);
-}
-.checkbox label,
-.todo__item--editable-area {
-  min-height: 32px;
-  display: block;
-  padding-left: 40px;
-  margin-bottom: 0;
-  font-weight: normal;
-  cursor: pointer;
-}
-.checkbox label span {
-  position: absolute;
-  top: 50%;
-  left: 43px;
-  text-align: left;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-.checkbox input[type="checkbox"]:focus + .todo__item--name-area label::before {
-  outline: 0;
-}
-
-.todo__item--editable-area {
-  min-height: 20px;
-  padding-right: 40px;
-  padding-top: 7px;
-}
-
-.todo__item--editable-field {
-  font-size: 14px;
-  width: 100%;
-  border: 0;
-  outline: none;
-  border-bottom: 1px solid #5F9EA0;
-}
-/* Checkbox end here */
-
 /* Delete button start here */
 .todo__item .checkbox .bnt__delete {
   display: none;
   position: absolute;
-  top: 0; right: 0;
-  bottom: 0; border: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
   background: none;
   width: 32px;
   height: 32px;
@@ -278,16 +194,18 @@ input {
 .todo__item .bnt__edit {
   display: none;
   position: absolute;
-  top: 0; right: 30px;
-  bottom: 0; border: 0;
+  top: 0;
+  right: 30px;
+  bottom: 0;
+  border: 0;
   background: none;
   width: 32px;
   height: 32px;
   padding: 0;
   margin: auto 0;
   font-size: 22px;
-  opacity: .5;
-  color: #5F9EA0;
+  opacity: 0.5;
+  color: #5f9ea0;
   cursor: pointer;
   transition: color 0.2s ease-out;
 }

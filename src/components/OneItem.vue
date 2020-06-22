@@ -1,21 +1,14 @@
 <template>
-  <li v-if="!todo.isDeleted" :class="{'done': todo.isDone}" class="todo__item">
+  <li v-if="todo.isMoved === isMove" :class="{'done': todo.isDone}" class="todo__item">
     <div class="checkbox">
       <div class="todo__item--name-area">
-        <label v-if="isSelectable" @click="changeDoneStatus()">
+        <label @click="changeMoveStatus()">
           <span :class="{'done': todo.isDone}">
             <strong>{{ index + 1 }}.</strong>
             {{ todo.name }}
           </span>
         </label>
-        <label v-else>
-          <span>
-            <strong>{{ index + 1 }}.</strong>
-            {{ todo.name }}
-          </span>
-        </label>
-        <button v-if="isSelectable" @click="edit = true" class="bnt__edit"></button>
-        <button v-if="isSelectable" @click="deleteTodoElement(todo.id)" class="bnt__delete"></button>
+        <!-- <button v-if="isSelectable" @click="deleteTodoElement(todo.id)" class="bnt__delete"></button> -->
       </div>
     </div>
   </li>
@@ -63,13 +56,9 @@ export default {
   },
   methods: {
     ...mapGetters(["undoCount"]),
-    ...mapMutations(["addActions", "deleteTodo"]),
-    changeDoneStatus() {
-      this.todo.isDone = !this.todo.isDone;
-      this.submit();
-    },
-    deleteTodoElement() {
-      this.deleteTodo({ id: this.noteId, todoObj: this.todo });
+    ...mapMutations(["addActions"]),
+    changeMoveStatus() {
+      this.todo.isMoved = !this.todo.isMoved;
       this.submit();
     },
     saveTodo() {

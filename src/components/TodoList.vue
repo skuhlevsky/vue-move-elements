@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <ul>
-      <OneItem
-        v-for="(todo, index) of todoElements"
-        :todo="todo"
-        :index="index"
-        :key="todo.id"
-        :isMove="isMove"
-        :isSelectable="isSelectable"
-      />
-    </ul>
-  </div>
+  <ul>
+    <OneItem
+      v-for="(todo, index) of todoElements"
+      :todo="todo"
+      :index="index"
+      :key="todo.id"
+      :isMove="isMove"
+      :isSelectable="isSelectable"
+    />
+  </ul>
 </template>
 
 <script>
