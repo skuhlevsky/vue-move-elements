@@ -6,7 +6,7 @@
         :todo="todo"
         :index="index"
         :key="todo.id"
-        :removable="removable"
+        :isMove="isMove"
         :isSelectable="isSelectable"
       />
     </ul>
@@ -16,7 +16,7 @@
 <script>
 import OneItem from "@/components/OneItem";
 export default {
-  props: ["todos", "removable", "isSelectable"],
+  props: ["todos", "isMove", "isSelectable"],
   components: {
     OneItem
   },
