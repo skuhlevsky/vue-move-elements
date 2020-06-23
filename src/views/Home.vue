@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="allNotes.length">
     <input
       class="field__search"
       autofocus
@@ -25,7 +25,7 @@
           <div class="column">
             <div class="second-column">
               <Elements
-                v-if="filteredListNames"
+                v-if="filteredListNames.length"
                 :elementsArray="filteredListNames"
                 :isMove="true"
               />

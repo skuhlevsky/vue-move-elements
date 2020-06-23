@@ -36,7 +36,7 @@ export default {
   computed: {
     count() {
       // Checking for todo element changes
-      return this.undoCount();
+      return this.historyCount();
     },
   },
   watch: {
@@ -48,7 +48,7 @@ export default {
     },
   },
   methods: {
-    ...mapGetters(['undoCount']),
+    ...mapGetters(['historyCount']),
     ...mapMutations(['addActions']),
     changeMoveStatus() {
       this.todo.isMoved = !this.todo.isMoved;
@@ -58,7 +58,10 @@ export default {
       this.todoSaved = { ...this.todo };
     },
     submit() {
-      this.addActions({ ...this.todoSaved });
+      this.addActions({
+        historyObj: { ...this.todoSaved },
+        isMoved: this.todo.isMoved,
+      });
       this.saveTodo();
     },
   },

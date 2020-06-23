@@ -2,14 +2,14 @@
   <ul>
     <template v-for="item of fullHistory">
       <li
-        v-if="!deepHistory || (deepHistory && item.obj.isMoved === !added)"
+        v-if="!deepHistory || (deepHistory && item.isMoved === added)"
         :key="item.time"
-        :class="[item.obj.isMoved ? 'blue' : 'red', 'history__item']"
+        :class="[item.isMoved ? 'blue' : 'red', 'history__item']"
       >
         <span class="history__item--id">({{ item.obj.id }}) -- </span>
         <span>{{ item.obj.name }} -- {{ item.time | formatDate }}</span>
-        <span v-if="item.obj.isMoved"> -- Moved</span>
-        <span v-else> -- Added</span>
+        <span v-if="item.isMoved"> -- Added</span>
+        <span v-else> -- Moved</span>
       </li>
     </template>
   </ul>
