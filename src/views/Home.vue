@@ -15,7 +15,7 @@
           <div class="column">
             <div class="first-column">
               <Elements
-                v-if="filteredListNames"
+                v-if="filteredListNames.length"
                 :elementsArray="filteredListNames"
                 :isMove="false"
               />

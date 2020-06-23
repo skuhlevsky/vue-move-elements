@@ -175,6 +175,10 @@ button {
   text-align: left;
 }
 
+.todo__item label {
+  cursor: pointer;
+}
+
 input {
   margin-right: 1rem;
   background-color: #f6f9fc;
@@ -183,69 +187,6 @@ input {
 .done {
   color: #bbbbbb;
   text-decoration: line-through;
-}
-
-/* Delete button start here */
-.todo__item .checkbox .bnt__delete {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  margin: auto 0;
-  font-size: 30px;
-  color: #cc9a9a;
-  cursor: pointer;
-  transition: color 0.2s ease-out;
-}
-
-.todo__item .bnt__delete:hover {
-  color: #af5b5e;
-}
-
-.todo__item .bnt__delete:after {
-  content: '×';
-}
-
-.todo__item:hover .bnt__delete {
-  display: block;
-}
-/* Delete button end here */
-
-.todo__item .bnt__edit {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 30px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  margin: auto 0;
-  font-size: 22px;
-  opacity: 0.5;
-  color: #5f9ea0;
-  cursor: pointer;
-  transition: color 0.2s ease-out;
-}
-
-.todo__item .bnt__edit:after {
-  content: '✎';
-}
-
-.todo__item .bnt__edit:hover {
-  opacity: 1;
-}
-
-.todo__item:hover .bnt__edit {
-  display: block;
 }
 
 @media (max-width: 600px) {

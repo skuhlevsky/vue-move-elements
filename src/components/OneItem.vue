@@ -1,18 +1,12 @@
 <template>
-  <li
-    v-if="todo.isMoved === isMove"
-    :class="{ done: todo.isDone }"
-    class="todo__item"
-  >
+  <li v-if="todo.isMoved === isMove" class="todo__item">
     <div class="checkbox">
-      <div class="todo__item--name-area">
-        <label @click="changeMoveStatus()">
-          <span :class="{ done: todo.isDone }">
-            <strong>{{ index + 1 }}.</strong>
-            {{ todo.name }}
-          </span>
-        </label>
-      </div>
+      <label @click="changeMoveStatus()">
+        <strong>{{ index + 1 }}.</strong>
+        {{ todo.name }}
+        <span v-if="!todo.isMoved">[+]</span>
+        <span v-else>[-]</span>
+      </label>
     </div>
   </li>
 </template>
@@ -80,85 +74,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.todo__item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.2rem 0.2rem;
-  transition: color 0.5s;
-  text-align: left;
-}
-
-input {
-  margin-right: 1rem;
-}
-
-.done {
-  color: #bbbbbb;
-  text-decoration: line-through;
-}
-
-/* Delete button start here */
-.todo__item .checkbox .bnt__delete {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  border: 0;
-  background: none;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  margin: auto 0;
-  font-size: 30px;
-  color: #cc9a9a;
-  cursor: pointer;
-  transition: color 0.2s ease-out;
-}
-
-.todo__item .bnt__delete:hover {
-  color: #af5b5e;
-}
-
-.todo__item .bnt__delete:after {
-  content: '×';
-}
-
-.todo__item:hover .bnt__delete {
-  display: block;
-}
-/* Delete button end here */
-
-.todo__item .bnt__edit {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 30px;
-  bottom: 0;
-  border: 0;
-  background: none;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  margin: auto 0;
-  font-size: 22px;
-  opacity: 0.5;
-  color: #5f9ea0;
-  cursor: pointer;
-  transition: color 0.2s ease-out;
-}
-
-.todo__item .bnt__edit:after {
-  content: '✎';
-}
-
-.todo__item .bnt__edit:hover {
-  opacity: 1;
-}
-
-.todo__item:hover .bnt__edit {
-  display: block;
-}
-</style>
