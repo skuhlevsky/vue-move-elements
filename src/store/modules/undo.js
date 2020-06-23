@@ -7,10 +7,6 @@ export default {
     addActions(state, historyObj) {
       state.undo.push({ time: Date.now(), obj: historyObj });
     },
-    inActiveUndo(state, action) {
-      state.undo[0].actual = !action;
-      state.redo[0].actual = action;
-    },
     clearUndo(state) {
       state.undo = [];
     },

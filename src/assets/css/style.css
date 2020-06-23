@@ -67,6 +67,24 @@ button {
   margin: 0 7px;
 }
 
+.wrapper {
+  margin: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+
 .note__todos {
   margin-bottom: 2rem;
 }
@@ -115,7 +133,7 @@ button {
   top: 1px;
 }
 
-.field__newtodo {
+.field__search {
   position: relative;
   margin: 0 0 20px;
   width: 100%;
@@ -131,19 +149,19 @@ button {
   border-bottom: 1px solid #999;
 }
 
-.field__newtodo::-webkit-input-placeholder {
+.field__search::-webkit-input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
 
-.field__newtodo::-moz-placeholder {
+.field__search::-moz-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
 
-.field__newtodo::input-placeholder {
+.field__search::input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;

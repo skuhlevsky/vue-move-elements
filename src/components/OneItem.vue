@@ -1,62 +1,61 @@
 <template>
-  <li v-if="todo.isMoved === isMove" :class="{'done': todo.isDone}" class="todo__item">
+  <li
+    v-if="todo.isMoved === isMove"
+    :class="{ done: todo.isDone }"
+    class="todo__item"
+  >
     <div class="checkbox">
       <div class="todo__item--name-area">
         <label @click="changeMoveStatus()">
-          <span :class="{'done': todo.isDone}">
+          <span :class="{ done: todo.isDone }">
             <strong>{{ index + 1 }}.</strong>
             {{ todo.name }}
           </span>
         </label>
-        <!-- <button v-if="isSelectable" @click="deleteTodoElement(todo.id)" class="bnt__delete"></button> -->
       </div>
     </div>
   </li>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from "vuex";
+import { mapMutations, mapGetters } from 'vuex';
 export default {
   props: {
     todo: {
       type: Object,
-      required: true
+      required: true,
     },
     isMove: {
       type: Boolean,
-      required: true
-    },
-    isSelectable: {
-      type: Boolean,
-      required: true
+      required: true,
     },
     noteId: Number,
-    index: Number
+    index: Number,
   },
   data() {
     return {
       todoSaved: {},
       // Copy of the previous state of the object
-      edit: false
+      edit: false,
     };
   },
   computed: {
     count() {
       // Checking for todo element changes
       return this.undoCount();
-    }
+    },
   },
   watch: {
     count: {
       immediate: true,
       handler() {
         this.saveTodo();
-      }
-    }
+      },
+    },
   },
   methods: {
-    ...mapGetters(["undoCount"]),
-    ...mapMutations(["addActions"]),
+    ...mapGetters(['undoCount']),
+    ...mapMutations(['addActions']),
     changeMoveStatus() {
       this.todo.isMoved = !this.todo.isMoved;
       this.submit();
@@ -67,18 +66,18 @@ export default {
     submit() {
       this.addActions({ ...this.todoSaved });
       this.saveTodo();
-    }
+    },
   },
   directives: {
     focus: {
       inserted(el) {
         el.focus();
-      }
-    }
+      },
+    },
   },
   mounted() {
     this.saveTodo();
-  }
+  },
 };
 </script>
 
@@ -124,7 +123,7 @@ input {
 }
 
 .todo__item .bnt__delete:after {
-  content: "×";
+  content: '×';
 }
 
 .todo__item:hover .bnt__delete {
@@ -152,7 +151,7 @@ input {
 }
 
 .todo__item .bnt__edit:after {
-  content: "✎";
+  content: '✎';
 }
 
 .todo__item .bnt__edit:hover {
