@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      todoSaved: {},
+      elementsaved: {},
       // Copy of the previous state of the object
       edit: false,
     };
@@ -55,11 +55,11 @@ export default {
       this.submit();
     },
     saveTodo() {
-      this.todoSaved = { ...this.todo };
+      this.elementsaved = { ...this.todo };
     },
     submit() {
       this.addActions({
-        historyObj: { ...this.todoSaved },
+        historyObj: { ...this.elementsaved },
         isMoved: this.todo.isMoved,
       });
       this.saveTodo();

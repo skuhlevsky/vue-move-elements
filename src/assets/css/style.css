@@ -85,10 +85,6 @@ button {
   flex: 1;
 }
 
-.note__todos {
-  margin-bottom: 2rem;
-}
-
 .btn {
   background-color: #bbb;
   border-radius: 5px;

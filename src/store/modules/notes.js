@@ -21,18 +21,18 @@ export default {
     async fetchNotes(ctx, noteName) {
       const res = await fetch('http://jsonplaceholder.typicode.com/albums');
       const responce = await res.json();
-      ctx.commit('updateNotes', { todosRes: responce, name: noteName });
+      ctx.commit('updateNotes', { elementsRes: responce, name: noteName });
     },
   },
   mutations: {
-    updateNotes(state, { todosRes, name }) {
+    updateNotes(state, { elementsRes, name }) {
       // Create Note Object with new name
       // Add isMoved flag
       // Remove items level
       let noteObj = {
         id: state.notes.length,
         title: name,
-        todos: todosRes.map(({ title }) => ({
+        elements: elementsRes.map(({ title }) => ({
           id: getUniqueID(),
           name: title.substring(0, 20),
           items: [
@@ -51,7 +51,7 @@ export default {
         })),
       };
 
-      const objectsFromItems = noteObj.todos.reduce((objects, obj) => {
+      const objectsFromItems = noteObj.elements.reduce((objects, obj) => {
         obj.items.forEach((ii) => {
           objects.push(ii);
         });
@@ -59,12 +59,12 @@ export default {
       }, []);
 
       // Remove items level
-      noteObj.todos = noteObj.todos.map(
+      noteObj.elements = noteObj.elements.map(
         // eslint-disable-next-line no-unused-vars
         ({ items, ...rest }) => rest
       );
 
-      noteObj.todos.push(...objectsFromItems);
+      noteObj.elements.push(...objectsFromItems);
       state.notes.push(noteObj);
     },
   },

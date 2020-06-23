@@ -20,7 +20,7 @@ export default {
   computed: {
     // check deleted elements
     elements() {
-      return this.todos.filter((t) => !t.isDeleted);
+      return this.elements.filter((t) => !t.isDeleted);
     },
   },
 };

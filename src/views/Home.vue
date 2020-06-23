@@ -44,7 +44,6 @@ import Elements from '@/components/Elements';
 export default {
   data: () => ({
     search: '',
-    searchName: '',
     minSearchStringSize: 0, // off
   }),
   components: {
@@ -61,19 +60,17 @@ export default {
     filteredListNames() {
       if (this.search.length < this.minSearchStringSize) return null;
 
-      let searchResult = this.allNotes[0].todos.filter((user) => {
+      let searchResult = this.allNotes[0].elements.filter((user) => {
         return user.name.toLowerCase().includes(this.search);
       });
 
       if (searchResult.length > 0) {
         // At least one character is needed for sorting
-        const count = (str, search) => {
-          return (str.match(new RegExp(search, 'g')) || []).length;
+        const count = (str) => {
+          return (str.match(new RegExp(this.search, 'g')) || []).length;
         };
 
-        searchResult.sort(
-          (a, b) => count(b.name, this.search) - count(a.name, this.search)
-        );
+        searchResult.sort((a, b) => count(b.name) - count(a.name));
       }
 
       return searchResult;
@@ -81,16 +78,6 @@ export default {
   },
   methods: {
     ...mapActions(['fetchNotes']),
-    searchNow(value) {
-      this.searchName = value.toLowerCase().trim();
-      this.searchSurname = '';
-      if (this.hasWhiteSpace(value)) {
-        let query = value.split(' ');
-        if (query[1]) {
-          this.searchName = query[0];
-        }
-      }
-    },
   },
 
   mounted() {
