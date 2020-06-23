@@ -65,11 +65,7 @@ export default {
       this.todoSaved = { ...this.todo };
     },
     submit() {
-      this.addActions({
-        action: "todo",
-        undoObj: { ...this.todoSaved },
-        redoObj: { ...this.todo }
-      });
+      this.addActions({ ...this.todoSaved });
       this.saveTodo();
     }
   },

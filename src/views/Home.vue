@@ -29,27 +29,26 @@
           </div>
         </div>
       </div>
-      <div>[история] [история добавлений] [история удалений]</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import TodoList from "@/components/TodoList";
+import { mapActions, mapGetters } from 'vuex';
+import TodoList from '@/components/TodoList';
 export default {
-  computed: mapGetters(["allNotes", "notesCount"]),
+  computed: mapGetters(['allNotes', 'notesCount']),
   methods: {
-    ...mapActions(["fetchNotes"])
+    ...mapActions(['fetchNotes']),
   },
   components: {
-    TodoList
+    TodoList,
   },
   mounted() {
     if (!this.notesCount) {
-      this.fetchNotes("First elements");
+      this.fetchNotes('First elements');
     }
-  }
+  },
 };
 </script>
 

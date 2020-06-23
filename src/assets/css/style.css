@@ -28,6 +28,14 @@ body {
   box-shadow: 0 4px 36px rgba(50, 50, 93, 0.11), 0 1px 33px rgba(0, 0, 0, 0.08);
 }
 
+nav {
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 0.5em;
+}
+
 .link__home {
   color: #5f9ea0;
 }
