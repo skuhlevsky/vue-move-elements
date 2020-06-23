@@ -28,8 +28,7 @@ export default {
   },
   data() {
     return {
-      elementsaved: {},
-      // Copy of the previous state of the object
+      elementSaved: {},
       edit: false,
     };
   },
@@ -43,7 +42,7 @@ export default {
     count: {
       immediate: true,
       handler() {
-        this.saveTodo();
+        this.saveElement();
       },
     },
   },
@@ -54,15 +53,15 @@ export default {
       this.todo.isMoved = !this.todo.isMoved;
       this.submit();
     },
-    saveTodo() {
-      this.elementsaved = { ...this.todo };
+    saveElement() {
+      this.elementSaved = { ...this.todo };
     },
     submit() {
       this.addActions({
-        historyObj: { ...this.elementsaved },
+        historyObj: { ...this.elementSaved },
         isMoved: this.todo.isMoved,
       });
-      this.saveTodo();
+      this.saveElement();
     },
   },
   directives: {
@@ -73,7 +72,7 @@ export default {
     },
   },
   mounted() {
-    this.saveTodo();
+    this.saveElement();
   },
 };
 </script>
