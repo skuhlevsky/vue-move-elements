@@ -163,7 +163,7 @@ button {
   color: #e6e6e6;
 }
 
-.todo__item {
+.element__item {
   display: flex;
   justify-content: space-between;
   padding: 0.2rem 0.2rem;
@@ -171,7 +171,7 @@ button {
   text-align: left;
 }
 
-.todo__item label {
+.element__item label {
   cursor: pointer;
 }
 

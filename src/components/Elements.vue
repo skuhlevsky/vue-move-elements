@@ -2,7 +2,7 @@
   <ul>
     <OneItem
       v-for="(element, index) of elementsArray"
-      :todo="element"
+      :element="element"
       :index="index"
       :key="element.id"
       :isMove="isMove"

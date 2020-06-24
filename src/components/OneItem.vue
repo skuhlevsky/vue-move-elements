@@ -1,10 +1,10 @@
 <template>
-  <li v-if="todo.isMoved === isMove" class="todo__item">
+  <li v-if="element.isMoved === isMove" class="element__item">
     <div class="checkbox">
       <label @click="changeMoveStatus()">
         <strong>{{ index + 1 }}.</strong>
-        {{ todo.name }}
-        <span v-if="!todo.isMoved">[+]</span>
+        {{ element.name }}
+        <span v-if="!element.isMoved">[+]</span>
         <span v-else>[-]</span>
       </label>
     </div>
@@ -12,67 +12,67 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations, mapGetters } from "vuex";
 export default {
   props: {
-    todo: {
+    element: {
       type: Object,
-      required: true,
+      required: true
     },
     isMove: {
       type: Boolean,
-      required: true,
+      required: true
     },
     noteId: Number,
-    index: Number,
+    index: Number
   },
   data() {
     return {
       elementSaved: {},
-      edit: false,
+      edit: false
     };
   },
   computed: {
     count() {
-      // Checking for todo element changes
+      // Checking for element changes
       return this.historyCount();
-    },
+    }
   },
   watch: {
     count: {
       immediate: true,
       handler() {
         this.saveElement();
-      },
-    },
+      }
+    }
   },
   methods: {
-    ...mapGetters(['historyCount']),
-    ...mapMutations(['addActions']),
+    ...mapGetters(["historyCount"]),
+    ...mapMutations(["addActions"]),
     changeMoveStatus() {
-      this.todo.isMoved = !this.todo.isMoved;
+      this.element.isMoved = !this.element.isMoved;
       this.submit();
     },
     saveElement() {
-      this.elementSaved = { ...this.todo };
+      this.elementSaved = { ...this.element };
     },
     submit() {
       this.addActions({
         historyObj: { ...this.elementSaved },
-        isMoved: this.todo.isMoved,
+        isMoved: this.element.isMoved
       });
       this.saveElement();
-    },
+    }
   },
   directives: {
     focus: {
       inserted(el) {
         el.focus();
-      },
-    },
+      }
+    }
   },
   mounted() {
     this.saveElement();
-  },
+  }
 };
 </script>
