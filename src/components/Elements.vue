@@ -27,12 +27,6 @@ export default {
   },
   components: {
     One
-  },
-  computed: {
-    // check deleted elements
-    elements() {
-      return this.elements.filter(t => !t.isDeleted);
-    }
   }
 };
 </script>
