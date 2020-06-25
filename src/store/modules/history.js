@@ -11,9 +11,6 @@ export default {
         isMoved: isMoved,
       });
     },
-    clearhistory(state) {
-      state.history = [];
-    },
   },
 
   getters: {

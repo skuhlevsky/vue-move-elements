@@ -64,13 +64,6 @@ export default {
       this.saveElement();
     }
   },
-  directives: {
-    focus: {
-      inserted(el) {
-        el.focus();
-      }
-    }
-  },
   mounted() {
     this.saveElement();
   }

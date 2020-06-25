@@ -7,7 +7,6 @@
       placeholder="Search..."
       v-model="search"
     />
-
     <div class="note-area">
       <div class="note-title">{{ allNotes[0].title }}</div>
       <div class="wrapper">
@@ -51,17 +50,22 @@ export default {
         const count = str => {
           return (str.match(new RegExp(this.search, "g")) || []).length;
         };
-
         searchResult.sort((a, b) => count(b.name) - count(a.name));
       }
 
       return searchResult;
     }
   },
+  directives: {
+    focus: {
+      inserted(el) {
+        el.focus();
+      }
+    }
+  },
   methods: {
     ...mapActions(["fetchNotes"])
   },
-
   mounted() {
     // Getting elements if they are not in the LocalStorage
     if (!this.notesCount) {
