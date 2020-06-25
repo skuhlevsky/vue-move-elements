@@ -1,13 +1,11 @@
 <template>
   <li v-if="element.isMoved === isMove" class="element__item">
-    <div class="checkbox">
-      <label @click="changeMoveStatus()">
-        <strong>{{ index + 1 }}.</strong>
-        {{ element.name }}
-        <span v-if="!element.isMoved">[+]</span>
-        <span v-else>[-]</span>
-      </label>
-    </div>
+    <label @click="changeMoveStatus()">
+      <strong>{{ elementIndex + 1 }}.</strong>
+      {{ element.name }}
+      <span v-if="!element.isMoved">[+]</span>
+      <span v-else>[-]</span>
+    </label>
   </li>
 </template>
 
@@ -23,8 +21,10 @@ export default {
       type: Boolean,
       required: true
     },
-    noteId: Number,
-    index: Number
+    elementIndex: {
+      type: Number,
+      required: true
+    }
   },
   data() {
     return {

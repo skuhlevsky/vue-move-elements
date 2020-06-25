@@ -1,27 +1,38 @@
 <template>
-  <ul>
-    <OneItem
-      v-for="(element, index) of elementsArray"
-      :element="element"
-      :index="index"
-      :key="element.id"
-      :isMove="isMove"
-    />
-  </ul>
+  <div class="column">
+    <ul>
+      <One
+        v-for="(element, index) of elementsArray"
+        :element="element"
+        :elementIndex="index"
+        :key="element.id"
+        :isMove="isMove"
+      />
+    </ul>
+  </div>
 </template>
 
 <script>
-import OneItem from '@/components/OneItem';
+import One from "@/components/One";
 export default {
-  props: ['elementsArray', 'isMove'],
+  props: {
+    elementsArray: {
+      type: Array,
+      required: true
+    },
+    isMove: {
+      type: Boolean,
+      required: true
+    }
+  },
   components: {
-    OneItem,
+    One
   },
   computed: {
     // check deleted elements
     elements() {
-      return this.elements.filter((t) => !t.isDeleted);
-    },
-  },
+      return this.elements.filter(t => !t.isDeleted);
+    }
+  }
 };
 </script>

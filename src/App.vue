@@ -5,9 +5,9 @@
     </h1>
 
     <nav>
-      <router-link to="/history/">[история]</router-link>
-      <router-link to="/history/added/">[история добавлений]</router-link>
-      <router-link to="/history/moved/">[история удалений]</router-link>
+      <router-link to="/history/">[History]</router-link>
+      <router-link to="/history/added/">[Added]</router-link>
+      <router-link to="/history/moved/">[Moved]</router-link>
     </nav>
 
     <router-view />
