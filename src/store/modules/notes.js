@@ -19,7 +19,7 @@ export default {
   },
   actions: {
     async fetchNotes(ctx, noteName) {
-      const res = await fetch('http://jsonplaceholder.typicode.com/albums');
+      const res = await fetch('https://jsonplaceholder.typicode.com/albums');
       const responce = await res.json();
       ctx.commit('updateNotes', { elementsRes: responce, name: noteName });
     },
