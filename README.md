@@ -1,6 +1,7 @@
 # vue-move-elements
 
-Example:
+### Official Examples
+
 https://vue1.stas.tv/
 
 ## Project setup
