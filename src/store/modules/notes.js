@@ -15,7 +15,6 @@ const getRandomUserName = () =>
 export default {
   state: {
     notes: [],
-    noteState: [],
   },
   actions: {
     async fetchNotes(ctx, noteName) {
